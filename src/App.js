@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DisplayMusic from './Components/DisplayMusic';
+import SearchBar from './Components/SearchBar';
 
 function App() {
 
@@ -23,12 +24,22 @@ function App() {
     }
   }
 
+  const searchFilter = (query) => {
+    let tempQuery = songs.filter(songs.query);
+    setSongs(tempQuery);
+  }
+
   return (
     <div>
       <header>
       </header>
       <div>
-        <DisplayMusic musicData={songs}/>
+        <div>
+          <SearchBar queryData={searchFilter}/>
+        </div>
+        <div>
+          <DisplayMusic key={songs.id} musicData={songs}/>
+        </div>
       </div>
     </div>
   );

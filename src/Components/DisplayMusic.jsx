@@ -5,6 +5,7 @@ const DisplayMusic = (props) => {
         <table>
             <thead>
                 <tr>
+                    <th>Track</th>
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Album</th>
@@ -13,9 +14,10 @@ const DisplayMusic = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.musicData.map((entry) => {
+                {props.musicData.map((entry, index) => {
                     return (
-                        <tr>
+                        <tr key={index}>
+                            <td>{index +1}</td>
                             <td>{entry.title}</td>
                             <td>{entry.artist}</td>
                             <td>{entry.album}</td>
