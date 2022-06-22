@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DisplayMusic from './Components/DisplayMusic';
 import SearchBar from './Components/SearchBar';
+// import AddSong from './Components/AddSong';
 
 function App() {
 
@@ -24,10 +25,44 @@ function App() {
     }
   }
 
-  const searchFilter = (query) => {
-    let tempQuery = songs.filter(songs.query);
-    setSongs(tempQuery);
+  function searchFilter(query) {
+    let searchRequest = query
+    let newArray = []
+    for (let i = 0; i < songs.length; i++) {
+      if(songs[i].title === searchRequest){
+        newArray.push(songs[i]);
+      }
+      else if(songs[i].artist === searchRequest){
+        newArray.push(songs[i]);
+      }
+      else if(songs[i].album === searchRequest){
+        newArray.push(songs[i]);
+      }
+      else if(songs[i].genre === searchRequest){
+        newArray.push(songs[i]);
+      }
+      else if(songs[i].release_date === searchRequest){
+        newArray.push(songs[i]);
+      }
+    }
+    setSongs(newArray)
   }
+
+  // useEffect(() => {
+  //   addNewSong();
+  // }, [])
+
+  // async function addNewSong(){
+  //   try{
+  //     let response = await axios.post('http://127.0.0.1:8000/music/')
+  //     .then((response) => {
+  //       setSongs(response.data);
+  //     });
+  //     console.log(response.data);
+  //   } catch (err) {
+  //     console.log('Error in making request');
+  //   }
+  // }
 
   return (
     <div>
@@ -40,6 +75,9 @@ function App() {
         <div>
           <DisplayMusic key={songs.id} musicData={songs}/>
         </div>
+        {/* <div>
+          <AddSong addNewSong={addNewSong}/>
+        </div> */}
       </div>
     </div>
   );
