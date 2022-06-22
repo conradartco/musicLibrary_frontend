@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DisplayMusic from './Components/DisplayMusic';
 import SearchBar from './Components/SearchBar';
-// import AddSong from './Components/AddSong';
+import AddSong from './Components/AddSong';
 
 function App() {
 
@@ -52,9 +52,16 @@ function App() {
   //   addNewSong();
   // }, [])
 
-  // async function addNewSong(){
+  async function addNewSong(newSong){
+    let response = await axios.post('http://127.0.0.1:8000/music/', newSong);
+    if(response.status === 201){
+      await getAllSongs();
+    }
+  }
+
+  // async function addNewSong(newSong){
   //   try{
-  //     let response = await axios.post('http://127.0.0.1:8000/music/')
+  //     let response = await axios.post('http://127.0.0.1:8000/music/', newSong)
   //     .then((response) => {
   //       setSongs(response.data);
   //     });
@@ -75,9 +82,9 @@ function App() {
         <div>
           <DisplayMusic key={songs.id} musicData={songs}/>
         </div>
-        {/* <div>
+        <div>
           <AddSong addNewSong={addNewSong}/>
-        </div> */}
+        </div>
       </div>
     </div>
   );
