@@ -1,74 +1,37 @@
-// import './Components.css'
-import './DisplayMusic.scss'
+import './Components.css'
 
 const DisplayMusic = (props) => {
-    return ( 
-        <div class="container">
-            <h2>MUSIC LIBRARY</h2>
-            <ul class="responsive-table">
-                <li class="table-header">
-                    <div class="col col-1">Title</div>
-                    <div class="col col-2">Artist</div>
-                    <div class="col col-3">Album</div>
-                    <div class="col col-4">Genre</div>
-                    <div class="col col-5">Release</div>
-                    <div class="col col-6"></div>
-                    <div class="col col-7"></div>
-                </li>
-            </ul>
-            <ul class="responsive-table">
+
+    return (
+        <table className='table-class'>
+            <thead>
+                <tr>
+                    <th className='col-1'>Title</th>
+                    <th className='col-2'>Artist</th>
+                    <th className='col-3'>Album</th>
+                    <th className='col-4'>Genre</th>
+                    <th className='col-5'>Release Date</th>
+                    <th className='col-6'></th>
+                    <th className='col-7'></th>
+                </tr>
+            </thead>
+            <tbody>
                 {props.musicData.map((entry, index) => {
                     return (
-                        <li class="table-row">
-                            <div class="col col-1" data-label="Job Id">42235</div>
-                            <div class="col col-2" data-label="Customer Name">John Doe</div>
-                            <div class="col col-3" data-label="Amount">$350</div>
-                            <div class="col col-4" data-label="Payment Status">Pending</div>
-                        </li>
+                        <tr key={index} className='row-style'>
+                            <td className='col-1'>{entry.title}</td>
+                            <td className='col-2'>{entry.artist}</td>
+                            <td className='col-3'>{entry.album}</td>
+                            <td className='col-4'>{entry.genre}</td>
+                            <td className='col-5'>{entry.release_date}</td>
+                            <td className='col-6'><i className="fa-solid fa-pen-to-square fa-lg"></i></td>
+                            <td className='col-7'><i className="fa-solid fa-circle-minus fa-lg"></i></td>
+                        </tr>
                     );
                 })}
-            </ul>
-            
-        </div>
-     );
+            </tbody>
+        </table>
+    )
 }
- 
+
 export default DisplayMusic;
-
-// const DisplayMusic = (props) => {
-
-//     return (
-//         <table>
-//             <thead>
-//                 <tr>
-//                     <th>Track</th>
-//                     <th>Title</th>
-//                     <th>Artist</th>
-//                     <th>Album</th>
-//                     <th>Genre</th>
-//                     <th>Release Date</th>
-//                     <th></th>
-//                     <th></th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {props.musicData.map((entry, index) => {
-//                     return (
-//                         <tr key={index}>
-//                             <td>{index +1}</td>
-//                             <td>{entry.title}</td>
-//                             <td>{entry.artist}</td>
-//                             <td>{entry.album}</td>
-//                             <td>{entry.genre}</td>
-//                             <td>{entry.release_date}</td>
-//                             <td className='button-style'><i className="fa-solid fa-pen-circle fa-lg"></i></td>
-//                             <td className='button-style'><i className="fa-solid fa-circle-minus fa-lg"></i></td>
-//                         </tr>
-//                     );
-//                 })}
-//             </tbody>
-//         </table>
-//     )
-// }
-
-// export default DisplayMusic;

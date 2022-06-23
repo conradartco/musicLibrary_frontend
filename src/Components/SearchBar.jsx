@@ -7,7 +7,7 @@ const SearchBar = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        let newQuery = query;
+        let newQuery = query.toLocaleLowerCase();
         console.log(newQuery);
         props.queryData(newQuery)
     }
@@ -15,10 +15,10 @@ const SearchBar = (props) => {
     return ( 
         <form onSubmit={handleSubmit} className="search-bar">
             <div>
-                <input type='str' value={query} className="input-style" onChange={(event) => setQuery(event.target.value)}/>
+                <input type='str' value={query} className="input-style" placeholder='Search...' onChange={(event) => setQuery(event.target.value)}/>
             </div>
             <div>
-                <button type='submit'>Filter</button>
+                <button type='submit' className='filter-button'><i className="fa-solid fa-filter fa-lg"></i></button>
             </div>
         </form>
      );

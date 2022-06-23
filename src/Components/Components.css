@@ -1,8 +1,8 @@
 .app-style {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
+    border-radius: 50px;
     background-color: rgb(191, 224, 243);
 }
 
@@ -10,31 +10,161 @@
     display: flex;
     justify-content: center;
     margin-bottom: 2em;
-    margin-top: 1em;
+    margin-top: 2em;
+}
+
+.input-style {
+    padding: 10px;
+    border-radius: 10px;
+    border: 0px;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-left: 25px;
+    border: ridge;
+}
+
+.filter-button {
+    border-width:0;
+    background-color: #fffafa00;
+}
+
+.filter-button:hover {
+    color: rgb(108, 165, 209);
 }
 
 .new-song-form {
-    display: inline-grid;
-    border: 1px;
-    width: 650px;
-    padding: 1.5em;
-    margin-top: 20px;
-    border-radius: 15px;
-    background-color: white;
-}
-
-.container {
     display: flex;
     justify-content: center;
     border: 1px;
-    width: auto;
+    width: 310px;
     padding: 1.5em;
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255);
+    margin-top: 2em;
+    margin-bottom: 200px;
+    border-radius: 30px;
+    background-color: white;
+    border-bottom: ridge;
 }
 
-table {
+.form-field {
+    padding: 10px;
+    border: 1px rgb(202, 202, 202);
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: ridge;
+    width: 300px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: 'roboto', sans-serif;
+    font-size: smaller;
+
+}
+
+.add-song-button {
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    border: 0px;
+    box-sizing: border-box;
+    margin-top: 25px;
+    background-color: rgb(108, 165, 209);
+    font-weight: 900;
+    font-size: small;
+    font-family: 'roboto', sans-serif;
+}
+
+.add-song-button:hover {
+    background-color: rgb(219, 235, 247);
+}
+
+.button-container {
+    display: grid;
+    justify-content: center;
+}
+
+.container {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    border-bottom: ridge;
+    margin-bottom: 1em;
+}
+
+.table-class {
     font-family: 'proxima-nova', sans-serif;
+    padding: 30px;
+    border-spacing: 0;
+}
+
+.col-1 {
+    width: 200px;
+    height: 50px;
+    padding-left: 15px;
+    border: solid 1px rgb(202, 202, 202);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.col-2 {
+    width: 200px;
+    border: solid 1px rgb(202, 202, 202);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.col-3 {
+    width: 200px;
+    border: solid 1px rgb(202, 202, 202);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.col-4 {
+    width: 100px;
+    border: solid 1px rgb(202, 202, 202);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.col-5 {
+    width: 90px;
+    padding-right: 15px;
+    border: solid 1px rgb(202, 202, 202);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    text-align: right;
+}
+
+.col-6 {
+    width: 60px;
+    text-align: right;
+}
+
+.col-6:hover {
+    color:rgb(108, 165, 209);
+}
+
+.col-7 {
+    width: 60px;
+    text-align: right;
+    padding-right: 8px;
+}
+
+.col-7:hover {
+    color:rgb(198, 70, 53);
+}
+
+.row-style:hover {
+    background-color: rgb(232, 232, 232);
 }
 
 th {
@@ -54,7 +184,6 @@ td {
     color: gray;
 }
 
-
 .head-style {
     height: 40px;
     margin-bottom: 6px;
@@ -71,6 +200,6 @@ td {
     margin-bottom: .65em;
 }
 
-.button-style{
-    padding: 1em;
+.title-style:hover {
+    color: rgb(108, 165, 209);
 }

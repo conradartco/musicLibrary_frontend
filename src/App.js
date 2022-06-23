@@ -37,10 +37,10 @@ function App() {
   function searchFilter(query) {
     let newArray = []
     for (let i = 0; i < songs.length; i++) {
-      if (songs[i].title.includes(query) ||
-          songs[i].artist.includes(query) ||
-          songs[i].album.includes(query) ||
-          songs[i].genre.includes(query) ||
+      if (songs[i].title.toLowerCase().includes(query) ||
+          songs[i].artist.toLowerCase().includes(query) ||
+          songs[i].album.toLowerCase().includes(query) ||
+          songs[i].genre.toLowerCase().includes(query) ||
           songs[i].release_date.includes(query)){
             newArray.push(songs[i]);
           }
