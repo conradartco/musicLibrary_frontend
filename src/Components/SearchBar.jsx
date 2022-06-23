@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './Components.css'
 
 const SearchBar = (props) => {
 
@@ -13,12 +13,12 @@ const SearchBar = (props) => {
     }
 
     return ( 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="search-bar">
             <div>
-                <input type='str' value={query} onChange={(event) => setQuery(event.target.value)}/>
+                <input type='str' value={query} className="input-style" onChange={(event) => setQuery(event.target.value)}/>
             </div>
             <div>
-                <button type='submit'>Submit</button>
+                <button type='submit'>Filter</button>
             </div>
         </form>
      );

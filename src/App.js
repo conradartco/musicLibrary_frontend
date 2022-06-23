@@ -3,16 +3,25 @@ import axios from 'axios';
 import DisplayMusic from './Components/DisplayMusic';
 import SearchBar from './Components/SearchBar';
 import AddSong from './Components/AddSong';
+import NavBar from './Components/NavBar'
+import './Components/Components.css';
 
 function App() {
 
   // async activity
   const [songs, setSongs] = useState([]);
+  // const [loadData, setLoadData] = useState(true);
 
   useEffect(() => {
     // forces a re-render when 'songs' content changes
     getAllSongs();
-  }, [])
+  },[])
+
+  // useEffect(() => {
+  //   // force a rerender
+  //   // The brackets are the triggers to cause the useEfect to execute
+  // }, [loadData])
+
 
   async function getAllSongs(){
     try{
@@ -26,31 +35,19 @@ function App() {
   }
 
   function searchFilter(query) {
-    let searchRequest = query
     let newArray = []
     for (let i = 0; i < songs.length; i++) {
-      if(songs[i].title === searchRequest){
-        newArray.push(songs[i]);
+      if (songs[i].title.includes(query) ||
+          songs[i].artist.includes(query) ||
+          songs[i].album.includes(query) ||
+          songs[i].genre.includes(query) ||
+          songs[i].release_date.includes(query)){
+            newArray.push(songs[i]);
+          }
       }
-      else if(songs[i].artist === searchRequest){
-        newArray.push(songs[i]);
-      }
-      else if(songs[i].album === searchRequest){
-        newArray.push(songs[i]);
-      }
-      else if(songs[i].genre === searchRequest){
-        newArray.push(songs[i]);
-      }
-      else if(songs[i].release_date === searchRequest){
-        newArray.push(songs[i]);
-      }
-    }
     setSongs(newArray)
+    // setLoadData(!loadData)
   }
-
-  // useEffect(() => {
-  //   addNewSong();
-  // }, [])
 
   async function addNewSong(newSong){
     let response = await axios.post('http://127.0.0.1:8000/music/', newSong);
@@ -59,30 +56,19 @@ function App() {
     }
   }
 
-  // async function addNewSong(newSong){
-  //   try{
-  //     let response = await axios.post('http://127.0.0.1:8000/music/', newSong)
-  //     .then((response) => {
-  //       setSongs(response.data);
-  //     });
-  //     console.log(response.data);
-  //   } catch (err) {
-  //     console.log('Error in making request');
-  //   }
-  // }
-
   return (
-    <div>
+    <div >
       <header>
+        <NavBar />
       </header>
-      <div>
+      <div className='app-style'>
         <div>
           <SearchBar queryData={searchFilter}/>
         </div>
-        <div>
+        <div className='container'>
           <DisplayMusic key={songs.id} musicData={songs}/>
         </div>
-        <div>
+        <div className='new-song-form'>
           <AddSong addNewSong={addNewSong}/>
         </div>
       </div>
