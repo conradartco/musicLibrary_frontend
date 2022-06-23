@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div >
-      <header>
+      <header className='nav-style'>
         <NavBar />
       </header>
       <div className='app-style'>
